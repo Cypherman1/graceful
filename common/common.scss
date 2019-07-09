@@ -2,8 +2,10 @@
 
 @import "common/foundation/variables";
 
+$no-background-image: "true";
+
 @mixin box-shadow($value: 8px) {
-  box-shadow: 0 1px $value rgba(black, 0.18);
+  box-shadow: 0 0.1px $value rgba(black, 0.18);
 }
 
 body {
@@ -26,13 +28,25 @@ body {
     }
   }
 }
+#top-navbar {
+  margin-right: auto;
+  margin-left: auto;
+  margin-top: 10px;
+  max-width: 1110px;
+  //You can move the menu to the left, to the center or to the right
+  text-align: center;
+}
+
+.logo-big {
+  height: 50px !important;
+}
 
 tbody {
   border-width: 1px;
 }
 
 #main {
-  padding-top: 120px;
+  padding-top: 88px;
   padding-bottom: 120px;
 }
 
@@ -40,8 +54,8 @@ tbody {
   background: rgba($secondary, 0.95);
   border-radius: 8px;
   width: 75%;
-  max-width: 930px;
-  padding: 3em 3em 5%;
+  max-width: 1150px;
+  padding: 2em 3em 5%;
   .archetype-regular & {
     min-height: 500px;
   }
@@ -49,7 +63,6 @@ tbody {
     padding: 1.5em;
   }
   padding-bottom: 5% !important; //overriding inline style
-  @include box-shadow;
   @media screen and (max-width: 1120px) {
     width: 80%;
   }
@@ -125,8 +138,9 @@ tbody {
 }
 
 header.d-header {
+  box-shadow: none;
   position: fixed;
-  @include box-shadow;
+  height: 85px;
   .contents {
     display: flex;
     align-items: center;
@@ -134,6 +148,9 @@ header.d-header {
   .panel {
     margin-left: auto;
     order: 5;
+  }
+  .wrap {
+    max-width: 1280px;
   }
 }
 
@@ -341,6 +358,11 @@ span.user-title {
 .babble-sidebar {
   height: calc(100% - 5.285em);
 }
+
+.list-controls {
+  margin-bottom: 0.5em !important;
+}
+
 .babble-sidebar-collapsed {
   border: none;
   background: transparent;
@@ -351,3 +373,5 @@ span.user-title {
     color: $primary;
   }
 }
+
+//tungnt customized code
