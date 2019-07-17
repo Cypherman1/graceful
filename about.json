@@ -1,13 +1,39 @@
 {
-  "name": "graceful",
-  "about_url": "https://meta.discourse.org/t/a-graceful-theme-for-discourse/93040/1",
+  "name": "brightics",
+  "component": false,
   "license_url": "https://meta.discourse.org/t/a-graceful-theme-for-discourse/93040/1",
+  "about_url": "https://meta.discourse.org/t/a-graceful-theme-for-discourse/93040/1",
+  "authors": null,
+  "theme_version": null,
+  "minimum_discourse_version": null,
+  "maximum_discourse_version": null,
   "assets": {
-    "default-background": "assets/sayagata-400px.png"
+    "ico_tel": "assets/ico_tel.png",
+    "ico_dropdown1": "assets/ico_dropdown1.png",
+    "img_footer_logo": "assets/img_footer_logo.png",
+    "ico_email": "assets/ico_email.png",
+    "SamsungOneLatinWeb-500": "assets/SamsungOneLatinWeb-500.woff",
+    "SamsungOneLatinWeb-600": "assets/SamsungOneLatinWeb-600.woff",
+    "SamsungOneLatinWeb-700": "assets/SamsungOneLatinWeb-700.woff",
+    "SamsungOneLatinWeb-800": "assets/SamsungOneLatinWeb-800.woff",
+    "SamsungOneLatinWeb-400": "assets/SamsungOneLatinWeb-400.woff",
+    "ico_dropdown1_open": "assets/ico_dropdown1_open.png"
   },
   "color_schemes": {
+    "Graceful_brightics": {
+      "primary": "222222",
+      "secondary": "ffffff",
+      "tertiary": "1743d5",
+      "quaternary": "e45735",
+      "header_background": "101b58",
+      "header_primary": "FFFFFF",
+      "highlight": "f6f6fb",
+      "danger": "f8745c",
+      "success": "41e254",
+      "love": "fa6c8d"
+    },
     "Graceful": {
-      "primary": "333",
+      "primary": "222222",
       "secondary": "ffffff",
       "tertiary": "88af8e",
       "quaternary": "88af8e",
@@ -18,5 +44,6 @@
       "success": "41e254",
       "love": "fa6c8d"
     }
-  }
+  },
+  "learn_more": "https://meta.discourse.org/t/beginners-guide-to-using-discourse-themes/91966"
 }

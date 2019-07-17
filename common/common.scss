@@ -375,3 +375,546 @@ span.user-title {
 }
 
 //tungnt customized code
+// Big thanks to jsthon for the initial work on this https://meta.discourse.org/u/jsthon/
+
+@import "common/foundation/variables";
+
+$no-background-image: "true";
+
+@font-face {
+  font-family: "SamsungOneLatinWeb-400";
+  src: url($SamsungOneLatinWeb-400) format("woff");
+}
+@font-face {
+  font-family: "SamsungOneLatinWeb-500";
+  src: url($SamsungOneLatinWeb-500) format("woff");
+}
+@font-face {
+  font-family: "SamsungOneLatinWeb-600";
+  src: url($SamsungOneLatinWeb-600) format("woff");
+}
+@font-face {
+  font-family: "SamsungOneLatinWeb-700";
+  src: url($SamsungOneLatinWeb-700) format("woff");
+}
+@font-face {
+  font-family: "SamsungOneLatinWeb-800";
+  src: url($SamsungOneLatinWeb-800) format("woff");
+}
+
+@mixin box-shadow($value: 8px) {
+  box-shadow: 0 0.1px $value rgba(black, 0.18);
+}
+
+body {
+  background-color: $primary-very-low;
+  @if $no-background-image == "false" {
+    @if $background-image != "default" {
+      // Thanks @tmoko!
+      background-image: url($background-image);
+    } @else {
+      background-image: url($default-background);
+    }
+    // Default background pattern from Toptal Subtle Patterns
+    // ♡ https://www.toptal.com/designers/subtlepatterns/japanese-sayagata/
+    background-attachment: fixed;
+    @if $tile-background == "true" {
+      background-size: auto;
+    } @else {
+      background-size: cover;
+      background-repeat: no-repeat;
+    }
+  }
+}
+#top-navbar {
+  margin-right: auto;
+  margin-left: auto;
+  margin-top: 10px;
+  max-width: 1110px;
+  //You can move the menu to the left, to the center or to the right
+  text-align: center;
+}
+
+.logo-big {
+  height: 50px !important;
+}
+
+tbody {
+  border-width: 1px;
+}
+
+#main {
+  padding-top: 88px;
+  padding-bottom: 120px;
+}
+
+#main-outlet {
+  background: rgba($secondary, 0.95);
+  border-radius: 8px;
+  width: 75%;
+  max-width: 1150px;
+  padding: 2em 3em 5%;
+  .archetype-regular & {
+    min-height: 500px;
+  }
+  @media screen and (max-width: 775px) {
+    padding: 1.5em;
+  }
+  padding-bottom: 5% !important; //overriding inline style
+  @media screen and (max-width: 1120px) {
+    width: 80%;
+  }
+  @media screen and (max-width: 1075px) {
+    width: 85%;
+  }
+}
+
+.btn,
+.select-kit.dropdown-select-box .dropdown-select-box-header {
+  border: 1px solid $primary-low;
+  color: $primary-high;
+  background: transparent;
+  border-radius: 4px;
+
+  &:hover {
+    background: $tertiary-low;
+    color: $tertiary;
+  }
+}
+
+.btn-danger {
+  background: $danger;
+  color: $secondary;
+  &:hover {
+    background: darken($danger, 10%);
+    color: $secondary;
+  }
+}
+
+.btn-primary {
+  background: $tertiary;
+  color: $secondary;
+  border-color: $tertiary;
+}
+
+#reply-control {
+  border-radius: 10px 10px 0 0;
+  .select-kit.dropdown-select-box .dropdown-select-box-header {
+    .d-icon {
+      color: $tertiary;
+    }
+    &:hover {
+      background: $tertiary-low;
+    }
+  }
+  .d-editor-button-bar {
+    .select-kit.dropdown-select-box .dropdown-select-box-header {
+      border: none;
+    }
+  }
+}
+
+.open .grippie {
+  background: transparent;
+  &:before {
+    border-color: $primary-low;
+  }
+}
+
+.d-editor-button-bar .btn {
+  border: none;
+  color: $tertiary;
+  .d-icon {
+    color: $tertiary;
+  }
+  &:hover {
+    background: $tertiary-low;
+    .d-icon {
+      color: $tertiary;
+    }
+  }
+}
+
+header.d-header {
+  box-shadow: none;
+  position: fixed;
+  height: 85px;
+  .contents {
+    display: flex;
+    align-items: center;
+  }
+  .panel {
+    margin-left: auto;
+    order: 5;
+  }
+  .wrap {
+    max-width: 1280px;
+  }
+}
+
+.d-header-icons .icon:hover {
+  background: $tertiary-low;
+  .d-icon {
+    color: $tertiary;
+  }
+}
+
+.badge-wrapper.box {
+  padding: 2px 6px 2px 5px;
+  span {
+    border-radius: 4px;
+  }
+}
+
+.deleted .topic-body {
+  background-color: rgba($danger, 0.2);
+}
+
+// Main category nav
+
+.list-controls .combo-box .combo-box-header {
+  background: transparent;
+  @media screen and (min-width: 775px) {
+    font-size: 1.1487em;
+  }
+  border-color: transparent;
+}
+
+.select-kit.combo-box.category-drop .category-drop-header,
+.select-kit.combo-box.tag-drop .tag-drop-header {
+  border-radius: 4px;
+}
+
+#list-area {
+  margin-bottom: 0;
+}
+
+#topic-title {
+  padding-top: 0;
+}
+
+.topic-map .btn {
+  border-radius: 0;
+}
+
+.badge-card {
+  border-radius: 4px;
+}
+
+// Horizontal topic timeline
+
+#topic-progress-wrapper {
+  right: 10vw !important;
+}
+
+#topic-progress-wrapper .topic-admin-menu-button-container .toggle-admin-menu {
+  background: $secondary;
+  border-radius: 4px 0 0 4px;
+}
+
+#bulk-select {
+  background: transparent;
+  button {
+    background: $secondary;
+    @include box-shadow(2px);
+    &:hover {
+      background: $tertiary-low;
+    }
+  }
+}
+
+// User pages
+
+.user-preferences .bio-composer .d-editor-preview,
+.group-form-bio .d-editor-preview,
+.edit-category-tab-topic-template .d-editor-preview {
+  background: $tertiary-low;
+}
+
+.badge-group {
+  background: $tertiary-low;
+}
+
+.input-prepend.input-append input,
+.input-prepend.input-append select {
+  background: $tertiary-low;
+}
+
+.modal .modal-body {
+  label .d-icon {
+    color: $tertiary;
+  }
+}
+
+.user-main {
+  .staff-counters {
+    background: $tertiary-low;
+    color: $tertiary;
+    a {
+      color: $tertiary;
+    }
+    span {
+      color: $secondary;
+    }
+  }
+  .helpful-flags {
+    background-color: #2ecc40;
+  }
+  .flagged-posts {
+    background-color: #f012be;
+  }
+  .deleted-posts {
+    background-color: #ff851b;
+  }
+  .warnings-received {
+    background-color: #ff4136;
+  }
+}
+
+// admin
+
+.admin-controls {
+  background: $tertiary-low;
+  .controls {
+    background: $tertiary-low;
+  }
+  nav {
+    background: $tertiary-low;
+    &:before {
+      background: linear-gradient(
+        to right,
+        $tertiary-low 0%,
+        rgba(234, 236, 238, 0) 100%
+      );
+    }
+    &:after {
+      background: linear-gradient(
+        to right,
+        rgba(234, 236, 238, 0) 0%,
+        $tertiary-low 100%
+      );
+    }
+  }
+}
+
+.nav-stacked {
+  background: $tertiary-low;
+  li {
+    border-color: $tertiary-medium;
+  }
+}
+
+.admin-detail {
+  border-color: $tertiary-medium;
+}
+
+.content-list ul li a:hover {
+  background: $tertiary-low;
+}
+
+span.user-title {
+  border: 1px solid #f1be18;
+  color: #f1be18 !important;
+  padding: 0 4px;
+  line-height: 1.2em;
+  font-size: 0.85em;
+  letter-spacing: 0.5px;
+  border-radius: 8px;
+}
+
+.uploaded-image-preview {
+  background: $tertiary-low;
+  border-radius: 4px;
+}
+
+// Select kit
+
+.select-kit.dropdown-select-box .dropdown-select-box-header {
+  &:hover {
+    .d-icon {
+      color: $tertiary;
+    }
+  }
+}
+
+.select-kit.dropdown-select-box.composer-actions .select-kit-header .d-icon {
+  border: none;
+}
+
+.select-kit.dropdown-select-box.toolbar-popup-menu-options .select-kit-row {
+  background: $tertiary-low;
+  &:hover,
+  &.is-highlighted {
+    background: $tertiary;
+  }
+}
+
+// Plugins
+
+// Babble
+
+.babble-sidebar {
+  height: calc(100% - 5.285em);
+}
+
+.list-controls {
+  margin-bottom: 0.5em !important;
+}
+
+.babble-sidebar-collapsed {
+  border: none;
+  background: transparent;
+  button.widget-button {
+    background: $secondary;
+  }
+  .d-icon {
+    color: $primary;
+  }
+}
+
+//tungnt customized code
+// footer
+/* footer */
+.footer_wrap {
+  background-color: #ededed;
+}
+.footer_wrap a:hover {
+  text-decoration: underline;
+}
+.footer_wrap > div {
+  width: 1240px;
+  margin: 0 auto;
+}
+.footer_nav {
+  padding: 40px 0 35px;
+}
+.footer_nav dl {
+  float: left;
+  padding-right: 70px;
+}
+.footer_nav dt {
+  padding-bottom: 18px;
+  font-family: SamsungOneLatinWeb-700, NanumSquareWeb-700;
+  font-size: 14px;
+  color: #000;
+}
+.footer_nav dt a {
+  font-family: SamsungOneLatinWeb-700, NanumSquareWeb-700;
+  font-size: 14px;
+  color: #000;
+}
+.footer_nav dd {
+  padding-bottom: 10px;
+  font-family: SamsungOneLatinWeb-400, NanumSquareWeb-400;
+  font-size: 14px;
+  color: #000;
+}
+.footer_nav dd a {
+  font-family: SamsungOneLatinWeb-400, NanumSquareWeb-400;
+  font-size: 14px;
+  color: #000;
+}
+.footer_nav .footer_nav_inquiry {
+  float: right;
+}
+.footer_nav .footer_nav_inquiry dd {
+  padding-left: 32px;
+}
+.footer_nav .footer_nav_inquiry dd a {
+  font-size: 13px;
+}
+.footer_tel {
+  position: relative;
+  padding-left: 20px;
+  display: inline-block;
+}
+.footer_tel:before {
+  content: "";
+  display: inline-block;
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 24px;
+  height: 21px;
+  background: url($ico_tel) no-repeat;
+  background-size: 100%;
+}
+.footer_email {
+  position: relative;
+}
+.footer_email:before {
+  content: "";
+  display: inline-block;
+  position: absolute;
+  left: 2px;
+  top: 4px;
+  width: 21px;
+  height: 16px;
+  background: url($ico_email) no-repeat 0 0;
+  background-size: 100%;
+}
+.family_area {
+  margin-bottom: 15px;
+}
+.family_area > div {
+  float: right;
+}
+.family_area .common_select {
+  font-size: 13px;
+}
+.family_area .common_select_title {
+  padding: 0 15px 0 0;
+  border-bottom: 1px solid transparent;
+  background: url($ico_dropdown1) no-repeat right 10px;
+}
+.family_area .open_select .common_select_title {
+  background: url($ico_dropdown1_open) no-repeat right 10px;
+  border-bottom: 1px solid #3922e5;
+}
+.family_area .common_select_cont {
+  bottom: 28px;
+  border-top: 1px solid #ccc;
+  box-shadow: none;
+}
+.family_area .common_select_cont li {
+  padding: 3px 0 3px 10px;
+}
+.btn_familysite {
+  width: 80px;
+  margin-right: 20px;
+}
+.btn_language {
+  width: 108px;
+}
+.policy_area {
+  padding-bottom: 20px;
+}
+.policy_area li {
+  float: left;
+  padding: 6px 40px 0 0;
+  font-size: 12px;
+}
+.policy_area li a {
+  color: #000;
+  opacity: 0.8;
+}
+.policy_area li:before {
+  content: "";
+  position: absolute;
+  height: 10px;
+  margin: 4px 0 0 -18px;
+  border-left: 1px solid rgba(82, 93, 134, 0.3);
+}
+.policy_area .privacy {
+  font-family: SamsungOneLatinWeb-700, NanumSquareWeb-700;
+}
+.policy_area .privacy:before {
+  border-left: 0;
+}
+.footer_logo {
+  float: right;
+  width: 165px;
+  height: 30px;
+  background-image: url($img_footer_logo);
+  background-size: 100%;
+}
