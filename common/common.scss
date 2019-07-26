@@ -8,7 +8,10 @@ $no-background-image: "true";
   box-shadow: 0 0.1px $value rgba(black, 0.18);
 }
 
+::-webkit-scrollbar { width: 0 !important }
+
 body {
+  overflow: auto;
   background-color: $primary-very-low;
   @if $no-background-image == "false" {
     @if $background-image != "default" {
@@ -62,7 +65,7 @@ tbody {
   @media screen and (max-width: 775px) {
     padding: 1.5em;
   }
-  padding-bottom: 5% !important; //overriding inline style
+  padding-bottom: 3% !important; //overriding inline style
   @media screen and (max-width: 1120px) {
     width: 80%;
   }
@@ -141,6 +144,7 @@ header.d-header {
   box-shadow: none;
   position: fixed;
   height: 85px;
+  background-color: #101b58!important;
   .contents {
     display: flex;
     align-items: center;
@@ -150,7 +154,7 @@ header.d-header {
     order: 5;
   }
   .wrap {
-    max-width: 1280px;
+    max-width: 1286px;
   }
 }
 
@@ -773,6 +777,18 @@ span.user-title {
 }
 
 //tungnt customized code
+
+//common
+
+.common_select{position:relative;float:left;width:165px;box-sizing:border-box;font-family:SamsungOneLatinWeb-400, NanumSquareWeb-400;font-size:16px;cursor:pointer;color:#656565;}
+.common_select_title{padding:1px 20px 1px 8px;background:none;/*background:url("../assets/images/ico_dropdown2.png") no-repeat right 11px;*/border-bottom:1px solid #d5d5d5;cursor:pointer;}
+.open_select .common_select_title{background:url("../assets/images/ico_dropdown2_open.png") no-repeat right 11px;}
+.common_select_cont{position:absolute;width:118px;padding:10px 0;margin-top:-1px;border:1px solid #ccc;border-top:1px solid #1743d5;background-color:#fff;box-shadow:2.5px 4.3px 5px rgba(85, 85, 85, 0.15);z-index:2;}
+.common_select_cont li{padding:5px 0 5px 14px;cursor:pointer;}
+.common_select_cont li:hover{background-color:rgba(23, 67, 213, 0.15);}
+.input_search:focus { outline: none; }
+
+
 // footer
 /* footer */
 .footer_wrap {
